@@ -2,9 +2,6 @@ SKILL2WORK-2
 
 Skill2Work
 An AI-powered skills, career and opportunity platform.
-Reference
-This repository is structurally inspired by the public income-tracker repository by KelvinOdems, which uses a concise PRD.md, design.html, and index.html structure.
-Files
 PRD.md — product requirements and phased roadmap
 index.html — self-contained functional MVP prototype
 design.html — visual design/reference page
