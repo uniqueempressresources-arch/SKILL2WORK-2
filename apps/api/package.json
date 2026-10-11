@@ -1,0 +1,33 @@
+{
+  "name": "@skill2work/api",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "worker": "node dist/worker.js",
+    "typecheck": "tsc --noEmit",
+    "auth:migrate": "npx auth@latest migrate --config ./src/auth/auth.ts",
+    "db:seed": "tsx src/db/seed.ts",
+    "db:migrate": "tsx src/db/migrate.ts",
+    "db:setup": "npm run db:migrate && npm run db:seed"
+  },
+  "dependencies": {
+    "@fastify/cors": "latest",
+    "@fastify/helmet": "latest",
+    "@fastify/rate-limit": "latest",
+    "fastify-raw-body": "latest",
+    "better-auth": "latest",
+    "fastify": "latest",
+    "pg": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "tsx": "latest",
+    "typescript": "latest"
+  },
+  "dependenciesMeta": {}
+}

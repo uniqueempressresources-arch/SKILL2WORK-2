@@ -1,0 +1,28 @@
+{
+  "name": "skill2work",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "apps/web",
+    "apps/api",
+    "packages/shared"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w apps/api\" \"npm run dev -w apps/web\"",
+    "dev:api": "npm run dev -w apps/api",
+    "dev:web": "npm run dev -w apps/web",
+    "build": "npm run build -w packages/shared && npm run build -w apps/api && npm run build -w apps/web",
+    "typecheck": "npm run typecheck -w packages/shared && npm run typecheck -w apps/api && npm run typecheck -w apps/web",
+    "start:api": "npm run start -w apps/api",
+    "start:worker": "npm run worker -w apps/api",
+    "auth:migrate": "npm run auth:migrate -w apps/api",
+    "db:seed": "npm run db:seed -w apps/api",
+    "db:migrate": "npm run db:migrate -w apps/api",
+    "db:setup": "npm run db:setup -w apps/api"
+  },
+  "devDependencies": {
+    "concurrently": "latest",
+    "typescript": "latest"
+  }
+}

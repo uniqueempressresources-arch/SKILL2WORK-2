@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: skill2work-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: skill2work
+      POSTGRES_PASSWORD: skill2work
+      POSTGRES_DB: skill2work
+    ports:
+      - "5432:5432"
+    volumes:
+      - skill2work_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U skill2work -d skill2work"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  skill2work_pgdata:
