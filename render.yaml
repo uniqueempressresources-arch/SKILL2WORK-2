@@ -4,9 +4,8 @@ services:
     name: skill2work-api
     runtime: node
     plan: free
-    buildCommand: npm install --include=dev && npm run build -w apps/api
-    preDeployCommand: npm run auth:migrate -w apps/api && npm run db:migrate -w apps/api
-    startCommand: npm run start -w apps/api
+    buildCommand: npm install --include=dev && npm run build -w packages/shared && npm run build -w apps/api
+    startCommand: npm run auth:migrate -w apps/api && npm run db:migrate -w apps/api && npm run start -w apps/api
     healthCheckPath: /health
     envVars:
       - key: NODE_ENV
@@ -35,7 +34,7 @@ services:
   - type: web
     name: skill2work-web
     runtime: static
-    buildCommand: npm install --include=dev && npm run build -w apps/web
+    buildCommand: npm install --include=dev && npm run build -w packages/shared && npm run build -w apps/web
     staticPublishPath: apps/web/dist
     envVars:
       - key: VITE_API_URL
