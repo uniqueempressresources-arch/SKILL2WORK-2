@@ -1,7 +1,7 @@
 services:
-  - type: static
+  - type: web
     name: skill2work-api
-    runtime: static
+    runtime: node
     buildCommand: npm install --include=dev && npm run build -w apps/api
     preDeployCommand: npm run auth:migrate -w apps/api && npm run db:migrate -w apps/api
     startCommand: npm run start -w apps/api
@@ -60,11 +60,14 @@ services:
         sync: false
       - key: AI_MODEL
         sync: false
-
-  - type: static
+  - type: web
     name: skill2work-web
-    buildCommand: npm install --include=dev && npm run build -w apps/web
+    runtime: static
     staticPublishPath: apps/web/dist
+
+
+    
+    buildCommand: npm install --include=dev && npm run build -w apps/web
     envVars:
       - key: VITE_API_URL
         fromService:
