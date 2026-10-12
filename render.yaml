@@ -60,14 +60,13 @@ services:
         sync: false
       - key: AI_MODEL
         sync: false
+ 
+    
   - type: web
     name: skill2work-web
     runtime: static
-    staticPublishPath: apps/web/dist
-
-
-    
     buildCommand: npm install --include=dev && npm run build -w apps/web
+    staticPublishPath: apps/web/dist
     envVars:
       - key: VITE_API_URL
         fromService:
