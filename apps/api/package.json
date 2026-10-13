@@ -1,3 +1,4 @@
+
 {
   "name": "@skill2work/api",
   "private": true,
@@ -22,13 +23,13 @@
     "better-auth": "latest",
     "fastify": "latest",
     "pg": "latest",
-    "dependencies": {
-  ...
-  "zod": "latest"
-},
-"devDependencies": {
-  "@types/node": "latest",
-  "@types/pg": "latest",
-  "tsx": "latest",
-  "typescript": "latest"
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "@types/pg": "latest",
+    "tsx": "latest",
+    "typescript": "latest"
+  },
+  "dependenciesMeta": {}
 }
