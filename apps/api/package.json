@@ -23,11 +23,11 @@
     "fastify": "latest",
     "pg": "latest",
     "zod": "latest"
-  },
   "devDependencies": {
-    "@types/node": "latest",
-    "tsx": "latest",
-    "typescript": "latest"
-  },
+  "@types/node": "latest",
+  "@types/pg": "latest",
+  "tsx": "latest",
+  "typescript": "latest"
+},
   "dependenciesMeta": {}
 }
