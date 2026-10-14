@@ -1,3 +1,4 @@
+
 {
   "compilerOptions": {
     "target": "ES2022",
@@ -7,7 +8,8 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "outDir": "dist",
-    "sourceMap": true
+"rootDir": "./src",
+"sourceMap": true
   },
   "include": ["src"]
 }

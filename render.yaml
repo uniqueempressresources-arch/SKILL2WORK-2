@@ -1,16 +1,17 @@
+
 services:
   - type: web
     name: skill2work-api
     runtime: node
-    buildCommand: npm install --include=dev && npm run build -w apps/api
-    preDeployCommand: npm run auth:migrate -w apps/api && npm run db:migrate -w apps/api
-    startCommand: npm run start -w apps/api
+    plan: free
+    buildCommand: npm install --include=dev && npm run build -w packages/shared && npm run build -w apps/api
+    startCommand: npm run auth:migrate -w apps/api && npm run db:migrate -w apps/api && npm run start -w apps/api
     healthCheckPath: /health
     envVars:
       - key: NODE_ENV
         value: production
       - key: API_PORT
-        value: 10000
+        value: "10000"
       - key: CLIENT_ORIGIN
         fromService:
           name: skill2work-web
@@ -27,43 +28,13 @@ services:
           name: skill2work-api
           type: web
           envVarKey: RENDER_EXTERNAL_URL
-      - key: PAYSTACK_SECRET_KEY
-        sync: false
-      - key: PAYSTACK_WEBHOOK_SECRET
-        sync: false
       - key: AI_ENABLED
         value: "false"
-      - key: AI_API_KEY
-        sync: false
-      - key: AI_MODEL
-        sync: false
 
-  - type: worker
-    name: skill2work-worker
-    runtime: node
-    buildCommand: npm install --include=dev && npm run build -w apps/api
-    startCommand: npm run worker -w apps/api
-    envVars:
-      - key: NODE_ENV
-        value: production
-      - key: DATABASE_URL
-        fromDatabase:
-          name: skill2work-db
-          property: connectionString
-      - key: WORKER_POLL_MS
-        value: "5000"
-      - key: PAYSTACK_SECRET_KEY
-        sync: false
-      - key: AI_ENABLED
-        value: "false"
-      - key: AI_API_KEY
-        sync: false
-      - key: AI_MODEL
-        sync: false
-
-  - type: static
+  - type: web
     name: skill2work-web
-    buildCommand: npm install --include=dev && npm run build -w apps/web
+    runtime: static
+    buildCommand: npm install --include=dev && npm run build -w packages/shared && npm run build -w apps/web
     staticPublishPath: apps/web/dist
     envVars:
       - key: VITE_API_URL
@@ -76,3 +47,4 @@ databases:
   - name: skill2work-db
     databaseName: skill2work
     user: skill2work
+    plan: free
