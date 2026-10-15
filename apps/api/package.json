@@ -10,7 +10,7 @@
     "start": "node dist/server.js",
     "worker": "node dist/worker.js",
     "typecheck": "tsc --noEmit",
-    "auth:migrate": "npx auth@latest migrate --config ./src/auth/auth.ts",
+    "auth:migrate": "npx auth@latest migrate --config ./src/auth/auth.ts --yes",
     "db:seed": "tsx src/db/seed.ts",
     "db:migrate": "tsx src/db/migrate.ts",
     "db:setup": "npm run db:migrate && npm run db:seed"
