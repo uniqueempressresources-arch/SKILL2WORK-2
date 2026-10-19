@@ -179,18 +179,9 @@ function openArtisanProfile() {
       and match with jobs, gigs, clients and service requests.
     </p>
   </div>
-  <button
-    type="button"
-    onClick={() =>
-      document.querySelector('.profile-card')?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      })
-    }
-  >
-    Create Artisan Profile
-  </button>
-</section>
+  <button type="button" onClick={openArtisanProfile}>
+  Create Artisan Profile
+</button>
 
     <section id="coach" className="card coach"><p className="eyebrow">OPTIONAL AI — SERVER SIDE</p><h2>AI Career Coach</h2><label htmlFor="question">Your career question</label><textarea id="question" value={question} onChange={e => setQuestion(e.target.value)} /><button onClick={askCoach}>Get practical guidance</button>{answer && <div className="answer">{answer}</div>}</section>
     <footer>Skill2Work online deployment foundation • secure by design • AI optional</footer>
