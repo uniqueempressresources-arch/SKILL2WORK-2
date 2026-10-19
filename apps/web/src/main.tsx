@@ -77,7 +77,23 @@ function App() {
       setAuthMessage(error instanceof Error ? error.message : 'Authentication failed.');
     } finally { setAuthBusy(false); }
   }
+function openArtisanProfile() {
+  if (!session) {
+    setAuthMode('signup');
+    setAuthMessage('Create an account or sign in to build your artisan profile.');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
 
+  const profileSection = document.querySelector('.profile-card');
+
+  if (profileSection) {
+    profileSection.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  }
+}
   async function signOut() {
     await api('/api/auth/sign-out', { method: 'POST', body: '{}' });
     setSession(null); setProfile(null); setAuthMessage('You are signed out.');
