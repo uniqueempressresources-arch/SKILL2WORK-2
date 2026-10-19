@@ -154,7 +154,7 @@ function App() {
       <article className="card"><h2>Matched opportunities</h2><Opportunity title="Customer Support Specialist" score={87} verified/><Opportunity title="Online French Tutor" score={84} verified/><Opportunity title="Electrical Maintenance Technician" score={89} service/></article>
     </section>
 
-    <section className="card artisan"><div><p className="eyebrow">ARTISAN & SKILLED TRADE HUB</p><h2>Turn practical skill into opportunity.</h2><p>Create a trade profile, show your work, set your service area and match with jobs, gigs, clients and service requests.</p></div><button>Create Artisan Profile</button></section>
+    <section className="card artisan"><div><p className="eyebrow">ARTISAN & SKILLED TRADE HUB</p><h2>Turn practical skill into opportunity.</h2><p>Create a trade profile, show your work, set your service area and match with jobs, gigs, clients and service requests.</p></div><<button type="button" onClick={() => document.querySelector('.profile-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>Create Artisan Profile</button>
 
     <section id="coach" className="card coach"><p className="eyebrow">OPTIONAL AI — SERVER SIDE</p><h2>AI Career Coach</h2><label htmlFor="question">Your career question</label><textarea id="question" value={question} onChange={e => setQuestion(e.target.value)} /><button onClick={askCoach}>Get practical guidance</button>{answer && <div className="answer">{answer}</div>}</section>
     <footer>Skill2Work online deployment foundation • secure by design • AI optional</footer>
